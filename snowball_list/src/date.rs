@@ -1,4 +1,4 @@
-
+#[derive(Clone)] //Useful for borrow issues
 pub struct Date
 {
     date: String

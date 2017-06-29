@@ -5,11 +5,22 @@ pub struct Task
     sorting: u16,
     description: String,
     duration: u32,
-    priority: String, //high, trying_to_care, low
+    priority: Priority,
     repeat_every: u32,
     starting_from: Date,
     is_checked: bool,
 }
+
+#[allow(dead_code)]
+#[derive(Clone)] //Useful for borrow issues
+pub enum Priority
+{
+    High,
+    TryingToCare,
+    Low,
+    None
+}
+
 
 #[allow(dead_code)]
 impl Task
@@ -19,7 +30,7 @@ impl Task
         self.sorting=0;
         self.description=String::new();
         self.duration=0;
-        self.priority=String::new();
+        self.priority=Priority::None;
         self.repeat_every=0;
         self.starting_from=Date::new();
         self.is_checked=false;
@@ -29,7 +40,7 @@ impl Task
     {
         self.sorting=sorting;
     }
-    pub fn get_sorting(& mut self)->u16
+    pub fn get_sorting(&self)->u16
     {
         self.sorting
     }
@@ -38,7 +49,7 @@ impl Task
     {
         self.description=description;
     }
-    pub fn get_description(& mut self)->String
+    pub fn get_description(&self)->String
     {
         self.description.clone()
     }
@@ -47,16 +58,16 @@ impl Task
     {
         self.duration=duration;
     }
-    pub fn get_duration(& mut self)->u32
+    pub fn get_duration(&self)->u32
     {
         self.duration
     }
 
-    pub fn set_priority(& mut self, priority: String)
+    pub fn set_priority(& mut self, priority: Priority)
     {
         self.priority=priority;
     }
-    pub fn get_priority(& mut self)->String
+    pub fn get_priority(&self)->Priority
     {
         self.priority.clone()
     }
@@ -65,28 +76,25 @@ impl Task
     {
         self.repeat_every=repeat_every;
     }
-    pub fn get_repeat_every(& mut self)->u32
+    pub fn get_repeat_every(&self)->u32
     {
         self.repeat_every
     }
 
-    // starting_from: Date,
-    // is_checked: bool,
     pub fn set_starting_from(& mut self, starting_from: Date)
     {
         self.starting_from=starting_from;
     }
-    pub fn get_starting_from(& mut self)->Date
+    pub fn get_starting_from(&self)->Date
     {
-        //self.starting_from.new()
-        Date::new()
+        self.starting_from.clone()
     }
 
     pub fn set_is_checked(& mut self, is_checked: bool)
     {
         self.is_checked=is_checked;
     }
-    pub fn get_is_checked(& mut self)->bool
+    pub fn get_is_checked(&self)->bool
     {
         self.is_checked
     }
