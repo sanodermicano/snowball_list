@@ -4,7 +4,7 @@
 /[Bb]uild/
 /[Bb]uilds/
 /Assets/AssetStoreTools*
-target/
+
 
 # Visual Studio 2015 cache directory
 /.vs/
@@ -33,3 +33,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+#My Ignored Files & Folders
+Links.txt
+target/

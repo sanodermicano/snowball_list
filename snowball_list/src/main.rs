@@ -1,5 +1,10 @@
-use std::{i32, i8};
+//use std::{i32, i8};
+#[macro_use] extern crate text_io;
 
-fn main() {
-    println!("Hello, worlds!");
+mod task;
+mod date;
+
+fn main()
+{
+    println!("Hello, worlds!!");
 }
