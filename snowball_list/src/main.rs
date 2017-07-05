@@ -1,10 +1,11 @@
-//use std::{i32, i8};
-#[macro_use] extern crate text_io;
+extern crate gtk;
 
-mod task;
-mod date;
+mod gui;
+use gui::main_menu;
+
+mod backend;
 
 fn main()
 {
-    println!("Still Structuring the system!");
+    main_menu::main_menu();
 }

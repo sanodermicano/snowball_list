@@ -1,4 +1,4 @@
-use date::Date;
+use backend::date::Date;
 #[allow(dead_code)]
 pub struct Task
 {
@@ -9,6 +9,7 @@ pub struct Task
     repeat_every: u32,
     starting_from: Date,
     is_checked: bool,
+    do_until: Date,
 }
 
 #[allow(dead_code)]
@@ -34,6 +35,7 @@ impl Task
         self.repeat_every=0;
         self.starting_from=Date::new();
         self.is_checked=false;
+        self.do_until=Date::new();
     }
 
     pub fn set_sorting(& mut self, sorting: u16)

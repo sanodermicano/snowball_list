@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.20.0 -->
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+  <object class="GtkAboutDialog" id="main about">
+    <property name="can_focus">False</property>
+    <property name="icon">rustacean-flat-happy.png</property>
+    <property name="type_hint">dialog</property>
+    <property name="program_name">Snowball List</property>
+    <property name="version">0.1</property>
+    <property name="comments" translatable="yes">Helping people to be more produtive and create is my deepest passion and is what I want to do for the rest of my life, thank you for trying this software and I hope it makes your life focused.</property>
+    <property name="website">https://www.patreon.com/sanodermicano</property>
+    <property name="website_label" translatable="yes">Loved This Work?</property>
+    <property name="authors">Development:
+Hassan Al Nori
+
+Contributers:
+Financial supporters:</property>
+    <property name="logo">rustacean-flat-happy.png</property>
+    <property name="license_type">mit-x11</property>
+    <child internal-child="vbox">
+      <object class="GtkBox" id="about">
+        <property name="name">bruh</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="has_focus">True</property>
+        <property name="can_default">True</property>
+        <property name="has_tooltip">True</property>
+        <property name="opacity">0.76000000000000001</property>
+        <property name="resize_mode">queue</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <property name="baseline_position">top</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox" id="69">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
