@@ -64,8 +64,9 @@ pub fn main_menu() {
     let new_task = MenuItem::new_with_label("New Task");
     let edit_task = MenuItem::new_with_label("Edit Task");
     let delete_task = MenuItem::new_with_label("Delete Task");
-    let take_a_break = MenuItem::new_with_label("Take a break");
     let finish_task = MenuItem::new_with_label("Finish Task");
+    let show_graph = MenuItem::new_with_label("Show Graph");
+    let take_a_break = MenuItem::new_with_label("Take a break");
 
     let new_item = MenuItem::new();
     let new_box = gtk::Box::new(gtk::Orientation::Horizontal, 0);
@@ -74,15 +75,6 @@ pub fn main_menu() {
     new_box.pack_start(&new_label, true, true, 0);
 
     new_item.add(&new_box);
-
-    task_menu.append(&new_task);
-    task_menu.append(&edit_task);
-    task_menu.append(&delete_task);
-    task_menu.append(&take_a_break);
-    task_menu.append(&finish_task);
-    task.set_submenu(Some(&task_menu));
-
-    //end of file
 
     let task_item = MenuItem::new();
     let task_box = gtk::Box::new(gtk::Orientation::Horizontal, 0);
@@ -93,8 +85,9 @@ pub fn main_menu() {
     task_menu.append(&new_task);
     task_menu.append(&edit_task);
     task_menu.append(&delete_task);
-    task_menu.append(&take_a_break);
     task_menu.append(&finish_task);
+    task_menu.append(&show_graph);
+    task_menu.append(&take_a_break);
     task.set_submenu(Some(&task_menu));
     menu_bar.append(&task);
 
