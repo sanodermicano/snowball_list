@@ -1,10 +1,10 @@
 
 pub extern crate gtk;
 use gtk::prelude::*;
-use gtk::{Window,Builder};
+use gtk::{AboutDialog,Window,Builder};
 
 
-    pub fn about()
+    pub fn about(window: &Window)
     {
         if gtk::init().is_err()
         {
@@ -15,15 +15,16 @@ use gtk::{Window,Builder};
         let glade_src = include_str!("about.glade");
         let builder = Builder::new_from_string(glade_src);
 
-        let window: Window = builder.get_object("main about").unwrap();
+        let about_window: AboutDialog = builder.get_object("main about").unwrap();
 
-        window.connect_delete_event(|_, _|
+        about_window.connect_delete_event(|_, _|
             {
                 gtk::main_quit();
                 Inhibit(false)
             });
 
-        window.show_all();
-
+        about_window.set_transient_for(Some(window));
+        about_window.run();
+        about_window.destroy();
         gtk::main();
     }

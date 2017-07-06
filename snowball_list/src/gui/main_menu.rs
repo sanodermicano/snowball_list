@@ -8,12 +8,13 @@ use gtk::{
     WindowPosition, WindowType
 };
 
-pub fn main_menu() {
-    if gtk::init().is_err() {
+pub fn main_menu()
+{
+    if gtk::init().is_err()
+    {
         println!("Failed to initialize GTK.");
         return;
     }
-
     let window = Window::new(WindowType::Toplevel);
 
     window.set_title("Snowball List");
@@ -91,6 +92,19 @@ pub fn main_menu() {
     task.set_submenu(Some(&task_menu));
     menu_bar.append(&task);
 
+    if true //If a task is clicked from the main menu, activate them
+    {
+        edit_task.set_sensitive(false);
+        delete_task.set_sensitive(false);
+        finish_task.set_sensitive(false);
+    }
+    else
+    {
+        edit_task.set_sensitive(true);
+        delete_task.set_sensitive(true);
+        finish_task.set_sensitive(true);
+    }
+
     //About Menu
     let about = MenuItem::new_with_label("About");
     let about_label = MenuItem::new_with_label("About");
@@ -105,14 +119,16 @@ pub fn main_menu() {
             gtk::main_quit();
         });
 
-    about_label.connect_activate( move |_|
-        {
-            about::about();
-        });
+
 
     v_box.pack_start(&menu_bar, false, false, 0);
     window.add(&v_box);
     window.show_all();
+
+    about_label.connect_activate( move |_|
+        {
+            about::about(&window);
+        });
 
     gtk::main();
 }
